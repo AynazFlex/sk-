@@ -1,0 +1,114 @@
+.header {
+    background: url("../assets/img/header.jpg") 0 0/cover no-repeat;
+}
+
+.header__mobile_logo {
+    display: none;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0 40px 0;
+}
+
+.header__mobile_logo>img {
+    display: block;
+    width: 200px;
+}
+
+.header__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0 24px;
+}
+
+.header__label {
+    background: rgb(237, 202, 146);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.header__title {
+    text-align: center;
+    font-size: 40px;
+    max-width: 950px;
+    line-height: 120%;
+    font-weight: 600;
+    color: white;
+}
+
+.header__title>span {
+    color: rgb(237, 202, 146)
+}
+
+.header__advertising {
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.header__advertising_item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 102%;
+}
+
+.header__advertising_item>span {
+    padding: 10px;
+    border-width: 1px;
+    border-radius: 8px;
+    background-image: linear-gradient(180deg, rgba(41,41,41,1) 0%, rgba(50,50,49,1) 100%);
+    border-color: #4d463e;
+    border-style: solid;
+    box-shadow: 0px 10px 30px 0px rgba(0,0,0,1);
+    color: rgb(237, 202, 146);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+    .header__advertising {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .header__title {
+        font-size: 28px;
+    }
+
+    .header__advertising_item {
+        font-style: 16px;
+    }
+
+    .header__advertising_item>span {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .header__title {
+        font-size: 24px;
+    }
+
+    .header__advertising {
+        margin-bottom: 20px;
+    }
+
+    .header__mobile_logo {
+        display: flex;
+    }
+}
