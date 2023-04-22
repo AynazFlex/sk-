@@ -25,7 +25,7 @@ links.forEach((item) => {
         burger.classList.remove("active");
         nav.classList.add("close");
         nav.classList.remove("open");
-        document.body.style.overflow === "auto" ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
+        document.body.style.overflow = "auto"
     }
   });
 });
