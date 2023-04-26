@@ -2,25 +2,32 @@
     background: #202020;
 }
 
-.service__container {
+.main__container {
     max-width: 1248px;
     margin: auto;
     padding: 100px 24px 20px;
 }
 
-.servise__title {
+.service__title,
+.contacts__title,
+.about__title {
     font-size: 40px;
     line-height: 102%;
     margin: 0px 0px 20px 0px;
-    color: white;
     font-weight: 400;
 }
 
-.servise__title>div {
+.service__title {
+    color: white;
+}
+
+.contacts__title,
+.about__title,
+.service__title>div {
     color: rgb(237, 202, 146);
 }
 
-.servise__subtitle {
+.service__subtitle {
     font-weight: 400;
     opacity: 0.8;
     color: white;
@@ -120,6 +127,85 @@
     cursor: pointer;
 }
 
+.contacts {
+    background: #202020;
+}
+
+.contacts__phone {
+    display: block;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
+    width: max-content;
+    color: white
+}
+
+.contacts__phone::after {
+    content: "";
+    display: block;
+    margin-top: 1px;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(237, 202, 146);
+}
+
+.contacts__socnetwork {
+    display: flex;
+    margin-top: 20px;
+    gap: 15px;
+    align-items: center;
+}
+
+.contacts__socnetwork>a {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.contacts__socnetwork>a>img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.about {
+    background: #434343;
+}
+
+.about__items {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+    background-color: #fcfdff;
+    box-shadow: 0px 35px 40px 10px rgba(0,0,0,1);
+    color: #2b2b2b;
+    border-radius: 10px;
+}
+
+.about__item>div {
+    width: 100px;
+    height: 100px;
+}
+
+.about__item>h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 400;
+}
+
 @media only screen and (max-width: 1148px) {
     .service__items {
         justify-content: center;
@@ -128,11 +214,13 @@
 }
 
 @media only screen and (max-width: 1024px) {
-    .servise__title {
+    .service__title,
+    .about__title,
+    .contacts__title {
         font-size: 28px;
     }
 
-    .servise__subtitle {
+    .service__subtitle {
         font-style: 16px;
     }
 }
@@ -142,7 +230,22 @@
         padding: 40px 24px 20px;
     }
 
-    .servise__title {
+    .service__title,
+    .about__title,
+    .contacts__title {
         font-size: 24px;
+    }
+
+    .about__item {
+        gap: 10px
+    }
+
+    .about__item>div {
+        width: 80px;
+        height: 80px;
+    }
+
+    .about__item>h3 {
+        font-size: 16px;
     }
 }
