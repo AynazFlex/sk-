@@ -237,6 +237,7 @@
     }
 
     .about__item {
+        width: 100%;
         gap: 10px
     }
 
