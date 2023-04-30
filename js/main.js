@@ -37,3 +37,61 @@ window.addEventListener("scroll", () => {
     nav.style.top = "0px";
   }, 200);
 });
+
+const sliderTarget = document.body.querySelector(".works__swiper")
+
+class Slider {
+    constructor({init, next, prev}) {
+        this.init = init;
+        this.next = next;
+        this.prev = prev;
+        this.activeId = 0;
+        this.prevId = 0;
+        this.slides = this.init.querySelectorAll(".works__swiper-item")
+        this.length = this.slides.length;
+    }
+
+    _move(index) {
+        const width = this.init.getBoundingClientRect().width
+        this.activeId = index
+        this.init.scrollTo({
+            left: index*width,
+            behavior: "smooth",
+        })
+    }
+
+    start() {
+        this.next.onclick = () => {
+            if(this.activeId < this.length-1) {
+                this._move(this.prevId + 1)
+            }
+        }
+
+        this.prev.onclick = () => {
+            if(this.activeId > 0) {
+                this._move(this.prevId - 1)
+            }
+        }
+
+        this.init.onscroll = () => {
+            clearTimeout(window.scrollEndTimer)
+            window.scrollEndTimer = setTimeout(() => {
+              this.prevId = this.activeId
+            }, 100)
+        }
+
+        window.onresize = () => {
+            this.init.scrollTo({
+                left: this.init.getBoundingClientRect().width*this.prevId
+            })
+        }
+    }
+}
+
+const slider = new Slider({
+    init: sliderTarget.querySelector(".works__swiper-container"),
+    next: sliderTarget.querySelector(".works__swiper-next"),
+    prev: sliderTarget.querySelector(".works__swiper-prev"),
+})
+
+slider.start()
