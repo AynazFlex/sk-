@@ -223,7 +223,6 @@
 .works__swiper {
     position: relative;
     width: 100%;
-    overflow-x: hidden;
 }
 
 .works__swiper-container {
@@ -231,6 +230,26 @@
     display: flex;
     flex-wrap: nowrap;
     overflow-x: hidden;
+}
+
+@keyframes next {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes prev {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
 }
 
 .works__swiper-item {
@@ -281,6 +300,26 @@
     font-weight: 600;
 }
 
+.works__swiper-item_img {
+    position: relative;
+    align-self: flex-start;
+}
+
+.works__swiper-item_img>button {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    text-align: center;
+}
+
 .works__swiper-item_img>img {
     display: block;
     height: 470px;
@@ -315,6 +354,10 @@
         justify-content: center;
         gap: 100px 20px
     }
+
+    .works__swiper-item_img>img {
+        height: 300px
+    }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -327,6 +370,25 @@
 
     .service__subtitle {
         font-style: 16px;
+    }
+
+    .works__swiper-item_info {
+        padding: 24px 0;
+    }
+}
+
+@media only screen and (max-width: 946px) {
+    .works__swiper-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .works__swiper-item_img {
+        align-self: center;
+    }
+
+    .works__swiper-item_img>img {
+        height: 470px
     }
 }
 
@@ -347,6 +409,32 @@
         gap: 10px
     }
 
+    .works__swiper-item_info>h3 {
+        font-size: 20px;
+    }
+
+    .works__swiper-item_info>p {
+        font-size: 18px;
+    }
+
+    .works__swiper-item_info>p>span {
+        font-size: 20px;
+    }
+
+    .works__swiper-item_data {
+        gap: 10px
+    }
+
+    .works__swiper-item_data>span {
+        font-size: 16px;
+        box-shadow: none;
+    }
+
+    .works__swiper-prev:hover,
+    .works__swiper-next:hover {
+        box-shadow: none;
+    }
+
     .about__item>div {
         width: 80px;
         height: 80px;
@@ -354,5 +442,23 @@
 
     .about__item>h3 {
         font-size: 16px;
+    }
+
+    .works__swiper-item_img>img {
+        width: 100%;
+        height: auto
+    }
+
+    .works__swiper-prev,
+    .works__swiper-next {
+        top: calc(100% - 24px)
+    }
+
+    .works__swiper-prev {
+        left: calc(50% - 70px);
+    }
+    
+    .works__swiper-next {
+        right: calc(50% - 70px);
     }
 }

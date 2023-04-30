@@ -45,46 +45,54 @@ class Slider {
         this.init = init;
         this.next = next;
         this.prev = prev;
-        this.activeId = 0;
-        this.prevId = 0;
+        // this.activeId = 0;
+        // this.prevId = 0;
         this.slides = this.init.querySelectorAll(".works__swiper-item")
         this.length = this.slides.length;
     }
 
-    _move(index) {
-        const width = this.init.getBoundingClientRect().width
-        this.activeId = index
-        this.init.scrollTo({
-            left: index*width,
-            behavior: "smooth",
-        })
-    }
+    // _move(index) {
+    //     const width = this.init.getBoundingClientRect().width
+    //     this.activeId = index
+    //     this.init.scrollTo({
+    //         left: index*width,
+    //         behavior: "smooth",
+    //     })
+    // }
 
     start() {
         this.next.onclick = () => {
-            if(this.activeId < this.length-1) {
-                this._move(this.prevId + 1)
-            }
+            // if(this.activeId < this.length-1) {
+            //     this._move(this.prevId + 1)
+            // }
+            this.init.style.animation = "next 400ms linear"
+            this.init.prepend(this.init.querySelectorAll(".works__swiper-item")[this.length - 1])
         }
 
         this.prev.onclick = () => {
-            if(this.activeId > 0) {
-                this._move(this.prevId - 1)
-            }
+            // if(this.activeId > 0) {
+            //     this._move(this.prevId - 1)
+            // }
+            this.init.style.animation = "prev 400ms linear"
+            this.init.append(this.init.querySelectorAll(".works__swiper-item")[0])
         }
 
-        this.init.onscroll = () => {
-            clearTimeout(window.scrollEndTimer)
-            window.scrollEndTimer = setTimeout(() => {
-              this.prevId = this.activeId
-            }, 100)
+        // this.init.onscroll = () => {
+        //     clearTimeout(window.scrollEndTimer)
+        //     window.scrollEndTimer = setTimeout(() => {
+        //       this.prevId = this.activeId
+        //     }, 100)
+        // }
+
+        this.init.onanimationend = ({currentTarget}) => {
+          currentTarget.style = null
         }
 
-        window.onresize = () => {
-            this.init.scrollTo({
-                left: this.init.getBoundingClientRect().width*this.prevId
-            })
-        }
+        // window.onresize = () => {
+        //     this.init.scrollTo({
+        //         left: this.init.getBoundingClientRect().width*this.prevId
+        //     })
+        // }
     }
 }
 
