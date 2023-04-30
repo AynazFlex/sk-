@@ -99,8 +99,8 @@
 .works__swiper-item_info>ul>li::before {
     content: "";
     display: block;
-    width: 10px;
-    height: 10px;
+    min-width: 10px;
+    min-height: 10px;
     border-radius: 100%;
     background-color: rgb(3, 255, 7)
 }
