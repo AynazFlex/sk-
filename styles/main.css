@@ -563,14 +563,16 @@
 
     .works__swiper-prev,
     .works__swiper-next {
-        top: calc(100% - 24px)
+        width: 30px;
+        height: 30px;
+        top: 200px
     }
 
     .works__swiper-prev {
-        left: calc(50% - 70px);
+        left: -10px;
     }
     
     .works__swiper-next {
-        right: calc(50% - 70px);
+        right: -10px
     }
 }

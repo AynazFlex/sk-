@@ -11,7 +11,7 @@
 
 .header__mobile_logo>img {
     display: block;
-    width: 200px;
+    height: 80px;
 }
 
 .header__container {
