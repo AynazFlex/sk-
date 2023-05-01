@@ -354,6 +354,7 @@
 }
 
 .works__swiper-prev {
+    transform: rotate(180deg);
     left: 20px;
 }
 
@@ -392,15 +393,13 @@
 
 .photos__swiper-container {
     display: flex;
+    align-items: center;
     width: 800px;
     max-width: 100%;
     overflow-x: hidden;
 }
 
 .photos__swiper-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
     min-width: 100%;
 }
@@ -409,8 +408,8 @@
     position: absolute;
     padding: 5px;
     width: 100%;
-    font-size: 18px;
-    top: 50%;
+    font-size: 20px;
+    bottom: 10px;
     left: 0px;
     text-align: center;
     font-weight: 600;
@@ -419,6 +418,7 @@
 
 .photos__swiper-item>img {
     display: block;
+    margin: auto;
     max-width: 100%;
     height: 600px;
     max-height: 90vh;
@@ -434,7 +434,8 @@
 }
 
 .photos__swiper-prev {
-    left: calc(50% - 460px)
+    left: calc(50% - 460px);
+    transform: rotate(180deg);
 }
 
 .photos__swiper-next {
