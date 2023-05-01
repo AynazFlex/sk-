@@ -342,7 +342,7 @@
     position: absolute;
     width: 50px;
     height: 50px;
-    top: calc(50% - 45px);
+    top: calc(50% - 25px);
     cursor: pointer;
     border-radius: 50%;
     transition: .3s
@@ -359,6 +359,86 @@
 
 .works__swiper-next {
     right: 20px;
+}
+
+.photos__swiper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.photos__swiper-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 65px;
+    height: 65px;
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+.close {
+    display: none !important;
+}
+
+.photos__swiper-container {
+    display: flex;
+    width: 800px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.photos__swiper-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-width: 100%;
+}
+
+.photos__swiper-item>span {
+    position: absolute;
+    padding: 5px;
+    width: 100%;
+    font-size: 18px;
+    top: 50%;
+    left: 0px;
+    text-align: center;
+    font-weight: 600;
+    color: black
+}
+
+.photos__swiper-item>img {
+    display: block;
+    max-width: 100%;
+    height: 600px;
+    max-height: 90vh;
+}
+
+.photos__swiper-prev,
+.photos__swiper-next {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: calc(50% - 25px);
+    cursor: pointer;
+}
+
+.photos__swiper-prev {
+    left: calc(50% - 460px)
+}
+
+.photos__swiper-next {
+    right: calc(50% - 460px)
 }
 
 @media only screen and (max-width: 1148px) {
@@ -391,12 +471,31 @@
         align-items: center;
     }
 
+    .photos__swiper-item>img {
+        height: auto;
+    }
+
     .works__swiper-item_img {
         align-self: center;
     }
 
     .works__swiper-item_img>img {
         height: 470px
+    }
+
+    .photos__swiper-prev,
+    .photos__swiper-next {
+        width: 30px;
+        height: 30px;
+        top: calc(50% - 15px);
+    }
+
+    .photos__swiper-prev {
+        left: 20px
+    }
+    
+    .photos__swiper-next {
+        right: 20px
     }
 }
 
