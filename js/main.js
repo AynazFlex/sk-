@@ -65,7 +65,7 @@ class Slider {
             // if(this.activeId < this.length-1) {
             //     this._move(this.prevId + 1)
             // }
-            this.init.style.animation = "next 400ms linear"
+            this.init.style.animation = "move 200ms linear"
             this.init.prepend(this.init.querySelectorAll(".works__swiper-item")[this.length - 1])
         }
 
@@ -73,7 +73,7 @@ class Slider {
             // if(this.activeId > 0) {
             //     this._move(this.prevId - 1)
             // }
-            this.init.style.animation = "prev 400ms linear"
+            this.init.style.animation = "move 200ms linear"
             this.init.append(this.init.querySelectorAll(".works__swiper-item")[0])
         }
 

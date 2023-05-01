@@ -232,6 +232,18 @@
     overflow-x: hidden;
 }
 
+@keyframes move {
+    from {
+        transform: scale(0.9);
+        opacity: 0.2;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 @keyframes next {
     from {
         transform: translateX(0%);
@@ -371,10 +383,6 @@
     .service__subtitle {
         font-style: 16px;
     }
-
-    .works__swiper-item_info {
-        padding: 24px 0;
-    }
 }
 
 @media only screen and (max-width: 946px) {
@@ -407,6 +415,10 @@
     .about__item {
         width: 100%;
         gap: 10px
+    }
+
+    .works__swiper-item_info {
+        padding: 24px 0;
     }
 
     .works__swiper-item_info>h3 {
