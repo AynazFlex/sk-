@@ -182,11 +182,39 @@
     background: #434343;
 }
 
+.about__container {
+    position: relative;
+}
+
 .about__items {
     display: flex;
     gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
+    overflow-x: scroll;
+    max-width: 1200px;
+    border-radius: 10px;
+}
+
+.about__forward,
+.about__back {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: calc(50% - 15px);
+    cursor: pointer;
+}
+
+.about__forward {
+    right: 10px;
+}
+
+.about__back {
+    left: 10px;
+    transform: rotate(180deg);
+}
+
+.about__items::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .about__item {
@@ -197,9 +225,9 @@
     gap: 20px;
     padding: 24px;
     background-color: #fcfdff;
-    box-shadow: 0px 35px 40px 10px rgba(0,0,0,1);
     color: #2b2b2b;
     border-radius: 10px;
+    min-width: max-content;
 }
 
 .about__item>div {
@@ -244,23 +272,51 @@
     }
 }
 
-@keyframes next {
+@keyframes next_1 {
     from {
-        transform: translateX(0%);
+        transform: scale(1) translateX(0);
+        opacity: 1;
     }
 
     to {
-        transform: translateX(-100%);
+        transform: scale(0) translateX(-100%);
+        opacity: 0;
     }
 }
 
-@keyframes prev {
+@keyframes next_2 {
     from {
-        transform: translateX(0%);
+        transform: scale(0) translateX(0);
+        opacity: 0;
     }
 
     to {
-        transform: translateX(100%);
+        transform: scale(1) translateX(-100%);
+        opacity: 1;
+    }
+}
+
+@keyframes prev_1 {
+    from {
+        transform: scale(1) translateX(-100%);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0) translateX(0%);
+        opacity: 0;
+    }
+}
+
+@keyframes prev_2 {
+    from {
+        transform: scale(0) translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateX(0%);
+        opacity: 1;
     }
 }
 
@@ -510,11 +566,6 @@
     .contacts__title,
     .work__title {
         font-size: 24px;
-    }
-
-    .about__item {
-        width: 100%;
-        gap: 10px
     }
 
     .works__swiper-item_info {
