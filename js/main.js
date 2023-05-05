@@ -7,6 +7,15 @@ const about = document.body.querySelector(".about__container");
 const about_items = about.querySelector(".about__items");
 const about_forward = about.querySelector(".about__forward");
 const about_back = about.querySelector(".about__back");
+const header = document.body.querySelector('.header');
+
+window.onload = async () => {
+  await new Promise((res) => {
+    setTimeout(res, 500)
+  })
+  await anim_sync(header.querySelector('.header__title'), 'header__anim', 'header__loading');
+  await anim_sync(header.querySelector('.header__subtitle'), 'header__anim', 'header__loading');
+}
 
 burger.addEventListener("click", () => {
   burger.classList.toggle("active");
@@ -180,3 +189,14 @@ sliderTarget.querySelectorAll(".works__swiper-item").forEach((item) => {
     slides_class: "photos__swiper-item",
   }).start();
 });
+
+async function anim_sync(elem, className, classDelete) {
+  elem.classList.add(className);
+  return new Promise(res => {
+    elem.addEventListener('animationend', () => {
+      elem.classList.remove(className);
+      elem.classList.remove(classDelete)
+      res()
+    })
+  })
+}

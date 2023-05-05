@@ -87,7 +87,6 @@
     margin-bottom: 5px;
     color: #2b2b2b;
     font-size: 16px;
-    opacity: 0.8;
 }
 
 .works__swiper-item_info>ul>li {
@@ -101,8 +100,7 @@
     display: block;
     min-width: 10px;
     min-height: 10px;
-    border-radius: 100%;
-    background-color: rgb(3, 255, 7)
+    background-color: rgb(237, 202, 146)
 }
 
 .service__item-price {
@@ -336,6 +334,7 @@
     margin: 0 0 15px 0;
     font-size: 26px;
     font-weight: 400;
+    color: rgb(237, 202, 146);
 }
 
 .works__swiper-item_info>p {
@@ -362,7 +361,7 @@
     background-color: rgb(237, 202, 146);
     box-shadow: 0px 35px 40px 10px rgba(0,0,0,1);
     font-size: 18px;
-    color: black;
+    color: white;
     font-weight: 400;
     line-height: 120%;
     font-weight: 600;

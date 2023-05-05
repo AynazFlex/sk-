@@ -1,5 +1,5 @@
 .header {
-    background: url("../assets/img/header.jpg") 0 0/cover no-repeat;
+    background: url("../assets/img/header.jpeg") 0 0/cover no-repeat;
 }
 
 .header__mobile_logo {
@@ -24,7 +24,7 @@
     padding: 0 24px;
 }
 
-.header__label {
+/* .header__label {
     background: rgb(237, 202, 146);
     padding: 5px 10px;
     border-radius: 5px;
@@ -33,7 +33,7 @@
     font-weight: 400;
     margin-bottom: 20px;
     text-align: center;
-}
+} */
 
 .header__title {
     text-align: center;
@@ -44,12 +44,37 @@
     color: white;
 }
 
-.header__title>span {
-    color: rgb(237, 202, 146)
+.header__loading {
+    opacity: 0;
+}
+
+@keyframes start {
+    from {
+        opacity: 0;
+        transform: translateX(-50%)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%)
+    }
+}
+
+.header__anim {
+    animation: start 500ms linear;
+}
+
+.header__subtitle {
+    color: rgb(237, 202, 146);
+    max-width: 950px;
+    text-align: center;
+    font-size: 36px;
+    margin: 10px 0 0 0;
+    line-height: 120%;
 }
 
 .header__advertising {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     gap: 30px;
     align-items: center;
@@ -90,6 +115,10 @@
         font-size: 28px;
     }
 
+    .header__subtitle {
+        font-size: 24px;
+    }
+
     .header__advertising_item {
         font-style: 16px;
     }
@@ -102,6 +131,10 @@
 @media only screen and (max-width: 769px) {
     .header__title {
         font-size: 24px;
+    }
+
+    .header__subtitle {
+        font-size: 22px;
     }
 
     .header__advertising {
