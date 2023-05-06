@@ -108,31 +108,62 @@ class Slider {
     ])
   }
 
-  start() {
-    this.next.onclick = () => {
-      // if(this.activeId < this.length-1) {
-      //     this._move(this.prevId + 1)
-      // }
-      const prev = this.init.querySelectorAll(`.${this.slides_class}`)[0];
-      const next = this.init.querySelectorAll(`.${this.slides_class}`)[1];
-      prev.style.animation = "next_1 1000ms ease";
-      next.style.animation = "next_2 1000ms ease";
-      this._anim(prev, next).then(() => this.init.append(prev))
-    };
+  _next() {
+    // if(this.activeId < this.length-1) {
+    //     this._move(this.prevId + 1)
+    // }
+    const prev = this.init.querySelectorAll(`.${this.slides_class}`)[0];
+    const next = this.init.querySelectorAll(`.${this.slides_class}`)[1];
+    prev.style.animation = "next_1 1000ms ease";
+    next.style.animation = "next_2 1000ms ease";
+    this._anim(prev, next).then(() => this.init.append(prev))
+  }
 
-    this.prev.onclick = () => {
-      // if(this.activeId > 0) {
-      //     this._move(this.prevId - 1)
-      // }
-      this.init.prepend(
-        this.init.querySelectorAll(`.${this.slides_class}`)[this.length - 1]
-      );
-      const prev = this.init.querySelectorAll(`.${this.slides_class}`)[0];
-      const next = this.init.querySelectorAll(`.${this.slides_class}`)[1];
-      prev.style.animation = "prev_2 1000ms ease";
-      next.style.animation = "prev_1 1000ms ease";
-      this._anim(prev, next)
-    };
+  _prev() {
+    // if(this.activeId > 0) {
+    //     this._move(this.prevId - 1)
+    // }
+    this.init.prepend(
+      this.init.querySelectorAll(`.${this.slides_class}`)[this.length - 1]
+    );
+    const prev = this.init.querySelectorAll(`.${this.slides_class}`)[0];
+    const next = this.init.querySelectorAll(`.${this.slides_class}`)[1];
+    prev.style.animation = "prev_2 1000ms ease";
+    next.style.animation = "prev_1 1000ms ease";
+    this._anim(prev, next)
+  }
+
+  start() {
+    this.next.onclick = this._next.bind(this);
+
+    this.prev.onclick = this._prev.bind(this);
+
+    this.init.addEventListener('touchstart', (e) => {
+      e.stopPropagation()
+      const startX = e.changedTouches[0].clientX;
+      const startY = e.changedTouches[0].clientY;
+
+      document.ontouchmove = (event) => {
+        const x = event.changedTouches[0].clientX - startX;
+        const y = event.changedTouches[0].clientY - startY;
+        if(Math.abs(y) <= Math.abs(x)) {
+            window.addEventListener('touchmove', preventdefault, { passive: false})
+        }
+      };
+
+      this.init.ontouchend = (event) => {
+        const x = event.changedTouches[0].clientX - startX;
+        window.removeEventListener('touchmove', preventdefault, { passive: false});
+        if(x < -50) {
+          this._next()
+        }
+        if(x > 50) {
+          this._prev()
+        }
+        this.init.ontouchend = null
+        document.ontouchmove = null
+      }
+    })
 
     // this.init.onscroll = () => {
     //     clearTimeout(window.scrollEndTimer)
@@ -199,4 +230,8 @@ async function anim_sync(elem, className, classDelete) {
       res()
     })
   })
+}
+
+function preventdefault(e) {
+  e.preventDefault();
 }
