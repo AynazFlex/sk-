@@ -6,12 +6,12 @@
     display: none;
     justify-content: center;
     width: 100%;
-    margin: 20px 0 40px 0;
+    margin: 20px 0;
 }
 
 .header__mobile_logo>img {
     display: block;
-    height: 80px;
+    height: 200px;
 }
 
 .header__container {
@@ -65,7 +65,7 @@
 }
 
 .header__subtitle {
-    color: rgb(237, 202, 146);
+    color: #F5BE0B;
     max-width: 950px;
     text-align: center;
     font-size: 36px;
@@ -98,7 +98,7 @@
     border-color: #4d463e;
     border-style: solid;
     box-shadow: 0px 10px 30px 0px rgba(0,0,0,1);
-    color: rgb(237, 202, 146);
+    color: #F5BE0B;
     font-size: 28px;
     font-weight: 600;
     line-height: 100%;
